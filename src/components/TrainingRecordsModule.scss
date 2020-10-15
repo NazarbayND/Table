@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  grid-template-areas: "leftSide rightSide rightSide rightSide";
+  margin: 0.5rem;
+  border: solid 1px #e6e6e6;
+  padding: 0.5rem;
+  grid-column-gap: 0.5rem;
+
+  .rightSide {
+    grid-area: rightSide;
+    border: solid 1px #e6e6e6;
+    padding: 1rem;
+  }
+  .leftSide {
+    grid-area: leftSide;
+    border: solid 1px #e6e6e6;
+    padding: 1rem;
+  }
+}
+
+.icons {
+  font-size: 10px;
+}
+
+.employeeTable {
+  height: 830px;
+}

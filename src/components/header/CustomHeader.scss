@@ -1,0 +1,44 @@
+.mainContainer {
+  display: flex;
+}
+
+.secondContainer {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  background-color: #e0e0e0;
+  align-items: center;
+}
+
+.moduleDescription {
+  min-width: 280px;
+  background-color: white;
+  height: 20px;
+  width: fit-content;
+  margin-left: 10px;
+  padding: 0 5px;
+  overflow: hidden;
+}
+
+.cubeLogo {
+  background-color: white;
+  margin: 2px;
+}
+.dateShow {
+  display: flex;
+  font-size: 10px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  border-left: 0.1px solid gray;
+  margin-left: 5px;
+  position: relative;
+  left: 5px;
+}
+
+.materialIcons {
+  background-color: white;
+  max-height: 20px;
+  margin-left: 10px;
+}

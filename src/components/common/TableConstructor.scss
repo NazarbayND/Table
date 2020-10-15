@@ -1,0 +1,69 @@
+.containerTable {
+  border: solid 1px #4a5f84;
+  padding: 10px;
+  width: fit-content;
+  font-family: "Roboto";
+
+  .tableName {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px;
+  }
+}
+
+.mainTable {
+  border-collapse: collapse;
+  border: solid 1px #e6e6e6;
+}
+
+.Head {
+  .Row {
+    border-collapse: separate;
+    background-color: white;
+    max-height: 18px;
+    height: 18px;
+    border-bottom: solid 1px #e6e6e6;
+
+    .Data {
+      .Content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0.5rem;
+        border-right: solid 1px #e6e6e6;
+      }
+      cursor: pointer;
+      color: #646464;
+      .filterIcon {
+        font-size: 10px;
+      }
+      .text {
+        font-size: 12px;
+        padding-right: 1rem;
+      }
+    }
+  }
+}
+
+.Body {
+  .Row:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  .Row {
+    border-collapse: separate;
+    cursor: pointer;
+    height: 18px;
+    max-height: 18px;
+    color: #464646;
+    .Data {
+      font-size: 12px;
+      padding: 0 0.5rem;
+    }
+  }
+  .Row:hover {
+    background-color: #f4f4f4;
+  }
+  .btn {
+    font-size: 8px;
+  }
+}
