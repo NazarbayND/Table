@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import EditIcon from "@material-ui/icons/Edit";
 import TableConstructor from "./common/TableConstructor";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -11,7 +11,12 @@ const EmployeeTrainingDetails = ({ data }) => {
     { path: "delivery", label: "Delivery", filter: true },
     { path: "duration", label: "Duration", filter: true },
     { path: "course", label: "Course", filter: true },
-    { path: "description", label: "Description", filter: true },
+    {
+      path: "description",
+      label:
+        "Description dasdsandj sadksnadkbsanhdjkbsa dsahdjasndhkjsabdhjksabd k",
+      filter: true,
+    },
     { path: "frequency", label: "Frequency", filter: true },
     { path: "last", label: "Last", filter: true },
     { path: "by", label: "By", filter: true },
@@ -39,14 +44,6 @@ const EmployeeTrainingDetails = ({ data }) => {
       content: (data) => <DeleteIcon style={{ fontSize: "12px" }} />,
     },
   ];
-  // const [sorted, setSorted] = useState(data);
-  // const handleDelete = (data) => {
-  //   const sorting = sorted.filter((item) => item._id !== data._id);
-  //   setSorted(sorting);
-  // };
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
 
   return (
     <div className="employeeTrainingDetails">

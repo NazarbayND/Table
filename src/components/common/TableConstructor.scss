@@ -3,29 +3,30 @@
   padding: 10px;
   width: fit-content;
   font-family: "Roboto";
-
+  overflow-y: auto;
   .tableName {
     font-size: 12px;
     font-weight: bold;
     padding: 2px;
   }
-}
-
-.mainTable {
-  border-collapse: collapse;
-  border: solid 1px #e6e6e6;
+  .mainTable {
+    border-collapse: collapse;
+    border: solid 1px #e6e6e6;
+  }
 }
 
 .Head {
   .Row {
     border-collapse: separate;
     background-color: white;
-    max-height: 18px;
-    height: 18px;
     border-bottom: solid 1px #e6e6e6;
-
     .Data {
+      padding: 0;
+
       .Content {
+        width: max-content;
+        height: 18px;
+        overflow: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -52,10 +53,14 @@
   .Row {
     border-collapse: separate;
     cursor: pointer;
-    height: 18px;
-    max-height: 18px;
     color: #464646;
     .Data {
+      padding: 0;
+      .BodyContent {
+        width: max-content;
+
+        height: 18px;
+      }
       font-size: 12px;
       padding: 0 0.5rem;
     }
@@ -65,5 +70,9 @@
   }
   .btn {
     font-size: 8px;
+  }
+  .WhiteSpace {
+    height: 100px;
+    width: 100%;
   }
 }
