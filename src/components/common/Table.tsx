@@ -4,8 +4,16 @@ import TableHeader from "./TableHeader";
 import _ from "lodash";
 import TableBody from "./TableBody";
 
-const TableConstructor = (props) => {
-  const { data, columns, tableName } = props;
+interface TableColumn {
+  path?: string;
+  key?: string;
+  label?: string;
+  filter?: boolean;
+  content?: any;
+}
+
+const Table = (props) => {
+  const { data, columns, tableName, gridType, rowClick } = props;
 
   const [sortColumn, setSortColumn] = useState({
     path: "",
@@ -39,10 +47,15 @@ const TableConstructor = (props) => {
           onFilter={onFilter}
           filterColumn={filterColumn}
         />
-        <TableBody data={filtered} columns={columns} />
+        <TableBody
+          data={filtered}
+          columns={columns}
+          gridType={gridType}
+          rowClick={rowClick}
+        />
       </table>
     </div>
   );
 };
 
-export default TableConstructor;
+export default Table;

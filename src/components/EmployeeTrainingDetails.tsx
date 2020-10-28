@@ -1,6 +1,6 @@
 import React from "react";
 import EditIcon from "@material-ui/icons/Edit";
-import TableConstructor from "./common/TableConstructor";
+import Table from "./common/Table";
 import DeleteIcon from "@material-ui/icons/Delete";
 import InfoIcon from "@material-ui/icons/Info";
 
@@ -13,8 +13,7 @@ const EmployeeTrainingDetails = ({ data }) => {
     { path: "course", label: "Course", filter: true },
     {
       path: "description",
-      label:
-        "Description dasdsandj sadksnadkbsanhdjkbsa dsahdjasndhkjsabdhjksabd k",
+      label: "Description",
       filter: true,
     },
     { path: "frequency", label: "Frequency", filter: true },
@@ -47,10 +46,11 @@ const EmployeeTrainingDetails = ({ data }) => {
 
   return (
     <div className="employeeTrainingDetails">
-      <TableConstructor
+      <Table
         tableName="Employee Training Details"
         data={data}
         columns={columns}
+        gridType={true}
       />
     </div>
   );

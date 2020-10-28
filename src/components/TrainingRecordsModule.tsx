@@ -10,14 +10,15 @@ export default function TrainingRecordsModule() {
     const name = names.filter((i) => i._id === item._id);
     setSelectedName(name[0]);
   };
-  useEffect(() => {
-    console.log(selectedName);
-  }, [selectedName]);
+  useEffect(() => {}, [selectedName]);
 
   return (
     <div className="container">
       <div className="leftSide">
-        <EmployeeTable names={names} onNameChange={handleNameChange} />
+        <EmployeeTable
+          names={names}
+          onRowClick={(item) => handleNameChange(item)}
+        />
       </div>
       <div className="rightSide">
         <EmployeeTrainingDetails data={selectedName.courseDetails} />
