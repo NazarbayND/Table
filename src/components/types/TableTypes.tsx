@@ -2,6 +2,7 @@ export interface TableColumn {
   path?: string;
   key?: string;
   label?: string;
+  labelComponent?: Function;
   filter?: boolean;
   content?: any;
   width?: string;
@@ -15,16 +16,16 @@ export enum GridTypes {
 }
 
 interface RowIcons {
-  reorder: boolean;
-  next: boolean;
-  checkbox: boolean;
+  reorder?: boolean;
+  next?: boolean;
+  checkbox?: boolean;
 }
 
 export type TableProps = {
-  tableName: string;
+  tableName?: string;
   data: {}[];
   columns: TableColumn[];
-  gridType: "small" | "medium" | "large" | "xlarge" | null;
-  rowClick: () => {};
-  rowIcons: RowIcons;
+  gridType?: "small" | "medium" | "large" | "xlarge" | null;
+  rowClick?: () => {};
+  rowIcons?: RowIcons;
 };

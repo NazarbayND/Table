@@ -17,11 +17,12 @@ const EmployeeTrainingDetails = ({ data }) => {
     { path: "last", label: "Last", filter: true },
     { path: "by", label: "By", filter: true },
   ];
-
+  // const rowClick = () => {
+  //   return null;
+  // };
   return (
     <div className="employeeTrainingDetails">
       <Table
-        rowClick={null}
         tableName="Employee Training Details"
         data={data}
         columns={columns}
