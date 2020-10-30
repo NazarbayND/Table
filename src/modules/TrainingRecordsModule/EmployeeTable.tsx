@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "./common/Table";
+import Table from "../../components/common/Table/Table";
 
 const EmployeeTable = ({ names, onRowClick }) => {
   const tableColumn = [
@@ -15,8 +15,9 @@ const EmployeeTable = ({ names, onRowClick }) => {
         data={names}
         columns={tableColumn}
         tableName="Employee ATE"
-        gridType={false}
+        gridType={null}
         rowClick={onRowClick}
+        rowIcons={{ reorder: false, next: false, checkbox: false }}
       />
     </div>
   );

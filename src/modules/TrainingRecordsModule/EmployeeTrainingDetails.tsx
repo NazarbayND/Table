@@ -1,8 +1,5 @@
 import React from "react";
-import EditIcon from "@material-ui/icons/Edit";
-import Table from "./common/Table";
-import DeleteIcon from "@material-ui/icons/Delete";
-import InfoIcon from "@material-ui/icons/Info";
+import Table from "../../components/common/Table/Table";
 
 const EmployeeTrainingDetails = ({ data }) => {
   const columns = [
@@ -19,38 +16,17 @@ const EmployeeTrainingDetails = ({ data }) => {
     { path: "frequency", label: "Frequency", filter: true },
     { path: "last", label: "Last", filter: true },
     { path: "by", label: "By", filter: true },
-    {
-      path: "history",
-      label: "History",
-      content: (data) => (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <InfoIcon style={{ fontSize: "12px" }} />
-        </div>
-      ),
-    },
-    {
-      key: "edit",
-      content: (data) => <EditIcon style={{ fontSize: "12px" }} />,
-    },
-    {
-      key: "delete",
-      content: (data) => <DeleteIcon style={{ fontSize: "12px" }} />,
-    },
   ];
 
   return (
     <div className="employeeTrainingDetails">
       <Table
+        rowClick={null}
         tableName="Employee Training Details"
         data={data}
         columns={columns}
-        gridType={true}
+        gridType={"medium"}
+        rowIcons={{ reorder: true, next: true, checkbox: true }}
       />
     </div>
   );

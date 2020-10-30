@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import EmployeeTable from "./EmployeeTable";
 import EmployeeTrainingDetails from "./EmployeeTrainingDetails";
 import "./TrainingRecordsModule.scss";
-import names from "../assets/names";
+import names from "../../assets/names";
 
 export default function TrainingRecordsModule() {
   const [selectedName, setSelectedName] = useState(names[0]);
@@ -20,6 +20,7 @@ export default function TrainingRecordsModule() {
           onRowClick={(item) => handleNameChange(item)}
         />
       </div>
+
       <div className="rightSide">
         <EmployeeTrainingDetails data={selectedName.courseDetails} />
       </div>

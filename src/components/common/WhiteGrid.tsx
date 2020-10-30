@@ -1,7 +1,7 @@
 import React from "react";
 
-const WhiteGrid = () => {
-  return <div className="WhiteSpace"></div>;
+const WhiteGrid = ({ gridType }) => {
+  return <div className={gridType}></div>;
 };
 
 export default WhiteGrid;

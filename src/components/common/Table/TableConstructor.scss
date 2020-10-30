@@ -5,9 +5,15 @@
   font-family: "Roboto";
   overflow-y: auto;
   .tableName {
+    height: 26px;
     font-size: 12px;
     font-weight: bold;
-    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .text {
+      padding-right: 1rem;
+    }
   }
   .mainTable {
     border-collapse: collapse;
@@ -35,14 +41,13 @@
         align-items: center;
         border-right: solid 1px #f9f9f9;
       }
-
-      .filterIcon {
-        font-size: 10px;
-        padding-right: 2px;
-      }
       .text {
         font-size: 12px;
         padding-right: 1rem;
+      }
+      .filterIcon {
+        padding-right: 2px;
+        font-size: 10px;
       }
     }
   }
@@ -74,8 +79,22 @@
   .btn {
     font-size: 8px;
   }
-  .WhiteSpace {
-    height: 100px;
+
+  width: 100%;
+  .small {
+    height: 96px;
+    width: 100%;
+  }
+  .medium {
+    height: 160px;
+    width: 100%;
+  }
+  .large {
+    height: 320px;
+    width: 100%;
+  }
+  .xlarge {
+    height: 545px;
     width: 100%;
   }
 }
