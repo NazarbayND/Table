@@ -7,8 +7,10 @@ import { ReactComponent as DeleteIcon } from "./icons/delete.svg";
 import { ReactComponent as NextDownIcon } from "./icons/nextdown.svg";
 import { ReactComponent as CheckboxCheckedIcon } from "./icons/checkboxchecked.svg";
 import { ReactComponent as FilterIcon } from "./icons/filter.svg";
+import { ReactComponent as XButtonIcon } from "./icons/x-button.svg";
 
 export {
+  XButtonIcon,
   FilterIcon,
   CheckboxCheckedIcon,
   CheckboxIcon,

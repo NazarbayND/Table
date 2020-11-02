@@ -1,13 +1,15 @@
 import React from "react";
+import { XButtonIcon } from "../../../assets/icons";
 
 const GridComponent = ({ content, handleClose }) => {
   return (
     <div className="popup-box">
       <div className="box">
-        <span className="close-icon" onClick={handleClose}>
-          x
-        </span>
-        {/* {content} */}
+        <div className="header">
+          <span className="text">Popup name</span>
+          <XButtonIcon className="x-button" onClick={handleClose} />
+        </div>
+        <div className="content"></div>
       </div>
     </div>
   );
