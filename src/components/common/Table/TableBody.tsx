@@ -1,7 +1,7 @@
 import React from "react";
 import TableRow from "./TableRow";
 
-const TableBody = ({ data, columns, gridType, rowClick }) => {
+const TableBody = ({ data, columns, rowClick, selectedRow, onDoubleClick }) => {
   return (
     <tbody className="Body">
       {data.map((item) => (
@@ -9,7 +9,7 @@ const TableBody = ({ data, columns, gridType, rowClick }) => {
           item={item}
           rowClick={rowClick}
           columns={columns}
-          gridType={gridType}
+          onDoubleClick={onDoubleClick}
         />
       ))}
     </tbody>

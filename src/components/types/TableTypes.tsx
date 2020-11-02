@@ -5,7 +5,9 @@ export interface TableColumn {
   labelComponent?: Function;
   filter?: boolean;
   content?: any;
-  width?: string;
+  style?: {
+    width?: string;
+  };
 }
 
 export enum GridTypes {
@@ -28,4 +30,5 @@ export type TableProps = {
   gridType?: "small" | "medium" | "large" | "xlarge" | null;
   rowClick?: () => {};
   rowIcons?: RowIcons;
+  gridContent?: () => {};
 };

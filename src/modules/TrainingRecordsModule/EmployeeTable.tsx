@@ -7,6 +7,9 @@ const EmployeeTable = ({ names, onRowClick }) => {
       path: "name",
       label: "Full Name",
       filter: true,
+      style: {
+        width: "150px",
+      },
     },
   ];
   return (
