@@ -10,13 +10,6 @@ export interface TableColumn {
   };
 }
 
-export enum GridTypes {
-  "small",
-  "medium",
-  "large",
-  "xlarge",
-}
-
 interface RowIcons {
   reorder?: boolean;
   next?: boolean;
@@ -27,8 +20,12 @@ export type TableProps = {
   tableName?: string;
   data: {}[];
   columns: TableColumn[];
-  gridType?: "small" | "medium" | "large" | "xlarge" | null;
   rowClick?: () => {};
   rowIcons?: RowIcons;
-  gridContent?: () => {};
+  popup?: {
+    type: "small" | "medium" | "large" | "xlarge" | null;
+    content: () => {};
+    onOpen: (item) => {};
+    style?: {};
+  };
 };

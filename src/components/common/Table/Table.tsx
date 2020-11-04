@@ -5,16 +5,15 @@ import TableBody from "./TableBody";
 import { TableProps } from "../../types/TableTypes";
 import TableName from "./TableName";
 import { CheckboxIcon, NextIcon, ReorderIcon } from "../../../assets/icons";
-import GridComponent from "./GridComponent";
+import Popup from "./Popup";
 
 const Table: FC<TableProps> = ({
   data,
   columns,
   tableName,
-  gridType,
   rowIcons,
   rowClick,
-  gridContent,
+  popup,
 }) => {
   const changedColumns = [
     rowIcons.reorder && {
@@ -35,19 +34,28 @@ const Table: FC<TableProps> = ({
     ...columns,
   ];
 
-  const [selectedRow, setSelectedRow] = useState({ _id: null });
-  const [isOpen, setIsOpen] = useState(false);
-  const [content, setContent] = useState();
+  const [classes, setClasses] = useState({
+    box: "box",
+    overlay: "overlay",
+    content: "content",
+  });
 
   const onDoubleClick = (item) => {
-    if (!gridType) return null;
-    setContent(item);
-    setIsOpen(true);
-    setSelectedRow(item);
+    if (!popup) return null;
+    popup.onOpen(item);
+    setClasses({
+      box: "box active",
+      overlay: "overlay active",
+      content: `content ${popup.type}`,
+    });
   };
 
   const handleClose = () => {
-    setIsOpen(false);
+    setClasses({
+      box: "box",
+      overlay: "overlay",
+      content: `content ${popup.type}`,
+    });
   };
 
   return (
@@ -58,13 +66,14 @@ const Table: FC<TableProps> = ({
         <TableHeader columns={changedColumns} />
         <TableBody
           onDoubleClick={onDoubleClick}
-          selectedRow={selectedRow}
           data={data}
           columns={changedColumns}
           rowClick={rowClick}
         />
       </table>
-      {isOpen && <GridComponent content={content} handleClose={handleClose} />}
+      {popup && (
+        <Popup popup={popup} handleClose={handleClose} classes={classes} />
+      )}
     </div>
   );
 };

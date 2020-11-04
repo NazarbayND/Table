@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-areas: "leftSide rightSide rightSide rightSide";
+  grid-template-areas: "leftSide rightSide rightSide endSide";
   margin: 0.5rem;
   border: solid 1px #e6e6e6;
   padding: 0.5rem;
@@ -16,6 +16,11 @@
     border: solid 1px #e6e6e6;
     padding: 1rem;
   }
+  .endSide {
+    grid-area: endSide;
+    border: solid 1px #e6e6e6;
+    padding: 1rem;
+  }
 }
 
 .icons {
@@ -23,7 +28,7 @@
 }
 
 .employeeTable {
-  height: 830px;
+  height: 100vh;
 }
 
 .employeeTrainingTable {

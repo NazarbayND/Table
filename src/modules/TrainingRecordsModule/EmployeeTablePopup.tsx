@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "../../components/common/table/Table";
 
-const EmployeeTable = ({ names, onRowClick }) => {
+const EmployeeTablePopup = ({ names, onPopup, popupContent }) => {
   const tableColumn = [
     {
       path: "name",
@@ -18,12 +18,19 @@ const EmployeeTable = ({ names, onRowClick }) => {
         data={names}
         columns={tableColumn}
         tableName="Employee ATE"
-        popup={null}
-        rowClick={onRowClick}
+        popup={{
+          type: "xlarge",
+          content: popupContent,
+          onOpen: onPopup,
+          style: {
+            display: "flex",
+            justifyContent: "center",
+          },
+        }}
         rowIcons={{ reorder: false, next: false, checkbox: false }}
       />
     </div>
   );
 };
 
-export default EmployeeTable;
+export default EmployeeTablePopup;

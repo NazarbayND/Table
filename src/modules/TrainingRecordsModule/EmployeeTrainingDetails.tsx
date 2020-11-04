@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "../../components/common/Table/Table";
+import Table from "../../components/common/table/Table";
 
 const EmployeeTrainingDetails = ({ data }) => {
   const columns = [
@@ -20,15 +20,26 @@ const EmployeeTrainingDetails = ({ data }) => {
   // const rowClick = () => {
   //   return null;
   // };
+
   return (
     <div className="employeeTrainingDetails">
-      <Table
-        tableName="Employee Training Details"
-        data={data}
-        columns={columns}
-        gridType={"medium"}
-        rowIcons={{ reorder: true, next: true, checkbox: true }}
-      />
+      {data && (
+        <Table
+          tableName="Employee Training Details"
+          data={data}
+          columns={columns}
+          popup={{
+            type: "xlarge",
+            content: () => {
+              return null;
+            },
+            onOpen: (item) => {
+              return null;
+            },
+          }}
+          rowIcons={{ reorder: true, next: true, checkbox: true }}
+        />
+      )}
     </div>
   );
 };

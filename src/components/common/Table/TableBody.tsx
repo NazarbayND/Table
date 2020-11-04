@@ -1,7 +1,7 @@
 import React from "react";
 import TableRow from "./TableRow";
 
-const TableBody = ({ data, columns, rowClick, selectedRow, onDoubleClick }) => {
+const TableBody = ({ data, columns, rowClick, onDoubleClick }) => {
   return (
     <tbody className="Body">
       {data.map((item) => (
