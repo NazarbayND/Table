@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "../../components/common/table/Table";
 
-const EmployeeTrainingDetails = ({ data }) => {
+const EmployeeTrainingDetails = ({ data, handleSort }) => {
   const columns = [
     { path: "next", label: "Next", filter: true },
     { path: "trainer", label: "Trainer", filter: true },
@@ -17,9 +17,6 @@ const EmployeeTrainingDetails = ({ data }) => {
     { path: "last", label: "Last", filter: true },
     { path: "by", label: "By", filter: true },
   ];
-  // const rowClick = () => {
-  //   return null;
-  // };
 
   return (
     <div className="employeeTrainingDetails">
@@ -27,9 +24,10 @@ const EmployeeTrainingDetails = ({ data }) => {
         <Table
           tableName="Employee Training Details"
           data={data}
+          onSort={handleSort}
           columns={columns}
           popup={{
-            type: "xlarge",
+            type: "small",
             content: () => {
               return null;
             },

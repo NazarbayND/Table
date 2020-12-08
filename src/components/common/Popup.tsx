@@ -1,5 +1,5 @@
 import React from "react";
-import { XButtonIcon } from "../../../assets/icons";
+import { XButtonIcon } from "../../assets/icons";
 
 const Popup = ({ popup, handleClose, classes }) => {
   return (

@@ -1,0 +1,15 @@
+.Tooltip::before,
+.Tooltip::after {
+  position: absolute;
+  content: " ";
+  background-color: black;
+  top: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+}
+.Tooltip::before {
+  content: " ";
+  height: 50px;
+  width: 50px;
+  background: black;
+}

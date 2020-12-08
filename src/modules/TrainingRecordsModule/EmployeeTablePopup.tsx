@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "../../components/common/table/Table";
 
-const EmployeeTablePopup = ({ names, onPopup, popupContent }) => {
+const EmployeeTablePopup = ({ data, onPopup, popupContent, handleSort }) => {
   const tableColumn = [
     {
       path: "name",
@@ -12,10 +12,12 @@ const EmployeeTablePopup = ({ names, onPopup, popupContent }) => {
       },
     },
   ];
+
   return (
     <div className="employeeTable">
       <Table
-        data={names}
+        data={data}
+        onSort={handleSort}
         columns={tableColumn}
         tableName="Employee ATE"
         popup={{
@@ -27,7 +29,7 @@ const EmployeeTablePopup = ({ names, onPopup, popupContent }) => {
             justifyContent: "center",
           },
         }}
-        rowIcons={{ reorder: false, next: false, checkbox: false }}
+        rowIcons={{ reorder: true, next: false, checkbox: false }}
       />
     </div>
   );

@@ -1,0 +1,115 @@
+$border-color: #f9f9f9;
+
+@media only screen and (min-width: 1600px) {
+  .tableName {
+    height: 30px;
+    font-size: 20px;
+  }
+
+  .Head {
+    font-size: 20px;
+  }
+  .Content {
+    height: 22px;
+  }
+  .text {
+    font-size: 15px;
+  }
+
+  .Data {
+    font-size: 15px;
+    .BodyContent {
+      height: 22px;
+    }
+  }
+}
+
+$default-font-size: 12px;
+$table-name-height: 26px;
+$default-row-height: 18px;
+
+.containerTable {
+  position: relative;
+  border: solid 1px #4a5f84;
+  padding: 10px;
+  width: fit-content;
+  font-family: "Roboto";
+  overflow-y: auto;
+
+  .tableName {
+    height: $table-name-height;
+    font-size: $default-font-size;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .text {
+      padding-right: 1rem;
+    }
+  }
+  .mainTable {
+    border-collapse: collapse;
+    border: solid 1px $border-color;
+  }
+}
+
+.Head {
+  .Row {
+    border-collapse: separate;
+    background-color: white;
+    border-bottom: solid 1px $border-color;
+
+    .Data {
+      width: fit-content;
+      padding: 0;
+      cursor: pointer;
+      color: #646464;
+      padding: 0 0 0 0.5rem;
+      .Content {
+        width: 100%;
+        height: $default-row-height;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-right: solid 0.1rem $border-color;
+      }
+      .text {
+        font-size: $default-font-size;
+        padding-right: 1rem;
+      }
+      .filterIcon {
+        padding-right: 2px;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.Body {
+  width: 100%;
+  .Row:nth-child(odd) {
+    background-color: $border-color;
+  }
+  .Row {
+    border-collapse: separate;
+    cursor: pointer;
+    color: #464646;
+    .Data {
+      padding: 0;
+      font-size: $default-font-size;
+      padding: 0 0.5rem;
+      .BodyContent {
+        width: max-content;
+        display: flex;
+        align-items: center;
+        height: $default-row-height;
+      }
+    }
+  }
+  .Row.draging {
+    border-bottom: solid 1px blue;
+  }
+  .Row:hover {
+    background-color: #f4f4f4;
+  }
+}

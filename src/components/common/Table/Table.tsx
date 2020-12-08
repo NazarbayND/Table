@@ -1,11 +1,13 @@
 import React, { FC, useState } from "react";
-import "./TableConstructor.scss";
+import "../../../style/Table.scss";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 import { TableProps } from "../../types/TableTypes";
 import TableName from "./TableName";
-import { CheckboxIcon, NextIcon, ReorderIcon } from "../../../assets/icons";
-import Popup from "./Popup";
+import { NextIcon, ReorderIcon } from "../../../assets/icons";
+import Popup from "../Popup";
+import Checkbox from "../Checkbox";
+import "../../../style/Popup.scss";
 
 const Table: FC<TableProps> = ({
   data,
@@ -13,13 +15,16 @@ const Table: FC<TableProps> = ({
   tableName,
   rowIcons,
   rowClick,
+  onSort,
   popup,
 }) => {
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [headerCheck, setHeaderCheck] = useState(false);
   const changedColumns = [
     rowIcons.reorder && {
       path: "reorderIcon",
       label: "",
-      content: (item) => <ReorderIcon />,
+      content: (item) => <ReorderIcon {...item} />,
     },
     rowIcons.next && {
       path: "nextIcon",
@@ -28,8 +33,15 @@ const Table: FC<TableProps> = ({
     },
     rowIcons.checkbox && {
       path: "checkboxIcon",
-      labelComponent: () => <CheckboxIcon />,
-      content: (item) => <CheckboxIcon />,
+      labelComponent: () => (
+        <Checkbox checked={headerCheck} handleClick={handleAllSelect} />
+      ),
+      content: (item) => (
+        <Checkbox
+          checked={status(item)}
+          handleClick={() => handleCheckbox(item)}
+        />
+      ),
     },
     ...columns,
   ];
@@ -39,6 +51,36 @@ const Table: FC<TableProps> = ({
     overlay: "overlay",
     content: "content",
   });
+
+  const handleAllSelect = () => {
+    if (!headerCheck) {
+      setSelectedItems(
+        data.map((item) => {
+          return item._id;
+        })
+      );
+    } else setSelectedItems([]);
+    setHeaderCheck(!headerCheck);
+  };
+
+  const handleCheckbox = (item) => {
+    if (selectedItems.includes(item._id)) {
+      setSelectedItems(
+        selectedItems.filter((i) => {
+          return i !== item._id;
+        })
+      );
+      if (headerCheck) setHeaderCheck(!headerCheck);
+      return;
+    }
+    setSelectedItems([...selectedItems, item._id]);
+  };
+
+  const status = (item) => {
+    if (!item._id) return false;
+    if (selectedItems.includes(item._id)) return true;
+    return false;
+  };
 
   const onDoubleClick = (item) => {
     if (!popup) return null;
@@ -63,12 +105,13 @@ const Table: FC<TableProps> = ({
       <TableName tableName={tableName} />
 
       <table className="mainTable">
-        <TableHeader columns={changedColumns} />
+        <TableHeader columns={changedColumns} onSort={onSort} />
         <TableBody
           onDoubleClick={onDoubleClick}
           data={data}
           columns={changedColumns}
-          rowClick={rowClick}
+          rowClick={rowIcons.checkbox ? handleCheckbox : rowClick}
+          tableName={tableName}
         />
       </table>
       {popup && (

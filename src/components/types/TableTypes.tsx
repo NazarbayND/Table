@@ -18,13 +18,17 @@ interface RowIcons {
 
 export type TableProps = {
   tableName?: string;
-  data: {}[];
+  data: {
+    _id: number;
+  }[];
   columns: TableColumn[];
+  row?: {};
+  onSort: any;
   rowClick?: () => {};
   rowIcons?: RowIcons;
   popup?: {
     type: "small" | "medium" | "large" | "xlarge" | null;
-    content: () => {};
+    content: React.FunctionComponent;
     onOpen: (item) => {};
     style?: {};
   };

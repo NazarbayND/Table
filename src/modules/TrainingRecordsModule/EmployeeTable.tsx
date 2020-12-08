@@ -1,7 +1,7 @@
 import React from "react";
-import Table from "../../components/common/table/Table";
+import Table from "../../components/common/table";
 
-const EmployeeTable = ({ names, onRowClick }) => {
+const EmployeeTable = ({ data, onRowClick, handleSort }) => {
   const tableColumn = [
     {
       path: "name",
@@ -12,10 +12,12 @@ const EmployeeTable = ({ names, onRowClick }) => {
       },
     },
   ];
+
   return (
     <div className="employeeTable">
       <Table
-        data={names}
+        data={data}
+        onSort={handleSort}
         columns={tableColumn}
         tableName="Employee ATE"
         popup={null}
