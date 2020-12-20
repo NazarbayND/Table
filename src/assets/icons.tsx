@@ -8,6 +8,7 @@ import { ReactComponent as NextDownIcon } from "./icons/nextdown.svg";
 import { ReactComponent as CheckboxCheckedIcon } from "./icons/checkboxchecked.svg";
 import { ReactComponent as FilterIcon } from "./icons/filter.svg";
 import { ReactComponent as XButtonIcon } from "./icons/x-button.svg";
+import { ReactComponent as SettingsIcon } from "./icons/settings.svg";
 
 export {
   XButtonIcon,
@@ -20,4 +21,5 @@ export {
   EditIcon,
   ReorderIcon,
   DeleteIcon,
+  SettingsIcon,
 };

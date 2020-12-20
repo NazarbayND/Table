@@ -1,13 +1,17 @@
 import React from "react";
 import { FilterIcon, ReorderIcon } from "../../assets/icons";
-import RemoveIcon from "@material-ui/icons/Remove";
 
-const TableHeader = ({ header, setting, handleDelete }) => {
+const TableHeader = ({ header }) => {
   return (
     <div className="Header">
       <div className="Cell" style={{ width: "1em" }}>
         <div className="Content">
-          <ReorderIcon width=".8em" height=".8em" color="#f0f0f0" />
+          <ReorderIcon
+            width=".8em"
+            height=".8em"
+            color="#f0f0f0"
+            style={{ visibility: "hidden" }}
+          />
         </div>
       </div>
       {header.map(
@@ -19,14 +23,6 @@ const TableHeader = ({ header, setting, handleDelete }) => {
                 {item.labelComponent && item.labelComponent()}
                 {item.filter && <FilterIcon width=".8em" height=".8em" />}
               </div>
-              {setting && (
-                <RemoveIcon
-                  width=".8em"
-                  height=".8em"
-                  style={{ margin: "0" }}
-                  onClick={() => handleDelete(item.path)}
-                />
-              )}
             </div>
           )
       )}

@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import * as _ from "lodash";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { ReorderIcon } from "../../assets/icons";
+import { AddIcon, DeleteIcon, EditIcon, ReorderIcon } from "../../assets/icons";
 
-const TableBody = ({ data, header, renderOpenUp, tableName }) => {
+const TableBody = ({
+  data,
+  header,
+  renderOpenUp,
+  tableName,
+  onDragAndDrop,
+}) => {
   const renderCell = (item, column) => {
     if (column.content) return column.content(item);
     else return _.get(item, column.path);
@@ -26,11 +32,10 @@ const TableBody = ({ data, header, renderOpenUp, tableName }) => {
     const items = Array.from(datas);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
-
-    setDatas(items);
+    onDragAndDrop(items);
   };
 
-  return (
+  return header.length === 0 ? null : (
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <Droppable droppableId={tableName}>
         {(provided) => (
@@ -39,7 +44,7 @@ const TableBody = ({ data, header, renderOpenUp, tableName }) => {
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
-            {datas.map((item, index) => (
+            {data.map((item, index) => (
               <React.Fragment key={item._id}>
                 <Draggable
                   draggableId={item._id.toString()}
@@ -72,7 +77,12 @@ const TableBody = ({ data, header, renderOpenUp, tableName }) => {
                   )}
                 </Draggable>
                 {selected && selected._id === item._id && (
-                  <div className="OpenUp">{renderOpenUp(selected)}</div>
+                  <div className="OpenUp">
+                    <AddIcon width="1.2em" height="1.2em" />
+                    <EditIcon width="1.2em" height="1.2em" />
+                    <DeleteIcon width="1.2em" height="1.2em" />
+                    {/* {renderOpenUp && renderOpenUp(selected)} */}
+                  </div>
                 )}
               </React.Fragment>
             ))}

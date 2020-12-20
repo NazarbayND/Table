@@ -1,61 +1,61 @@
-.overlay {
-  background-color: rgba($color: #8d8d8d, $alpha: 0.3);
-  position: absolute;
-  opacity: 0;
-  transition: 200ms ease-in-out;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-}
-.overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-.box.active {
-  transform: translate(-50%, -50%) scale(1);
-}
-.box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: 200ms ease-in-out;
-  z-index: 100;
-  background-color: white;
-  border-radius: 4px;
-  min-width: 70%;
-  width: fit-content;
-  max-width: 100%;
+// .overlay {
+//   background-color: rgba($color: #8d8d8d, $alpha: 0.3);
+//   position: absolute;
+//   opacity: 0;
+//   transition: 200ms ease-in-out;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   pointer-events: none;
+// }
+// .overlay.active {
+//   opacity: 1;
+//   pointer-events: all;
+// }
+// .box.active {
+//   transform: translate(-50%, -50%) scale(1);
+// }
+// .box {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%) scale(0);
+//   transition: 200ms ease-in-out;
+//   z-index: 100;
+//   background-color: white;
+//   border-radius: 4px;
+//   min-width: 70%;
+//   width: fit-content;
+//   max-width: 100%;
 
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #cad4e3;
-    height: 26px;
-    padding: 0 10px;
-    color: white;
-    font-size: 14px;
-    .x-button {
-      cursor: pointer;
-    }
-  }
-  .content {
-    padding: 1rem;
-    overflow: scroll;
-  }
-  .content.small {
-    height: 96px;
-  }
-  .content.medium {
-    height: 160px;
-  }
-  .content.large {
-    height: 320px;
-  }
-  .content.xlarge {
-    height: 545px;
-  }
-}
+//   .header {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     background-color: #cad4e3;
+//     height: 26px;
+//     padding: 0 10px;
+//     color: white;
+//     font-size: 14px;
+//     .x-button {
+//       cursor: pointer;
+//     }
+//   }
+//   .content {
+//     padding: 1rem;
+//     overflow: scroll;
+//     height: 96px;
+//   }
+// }
+// .content.small {
+//   .content.medium {
+//     height: 160px;
+//   }
+//   .content.large {
+//     height: 320px;
+//   }
+//   .content.xlarge {
+//     height: 545px;
+//   }
+// }
